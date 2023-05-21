@@ -1,0 +1,23 @@
+.album-details {
+  position: absolute;
+  top: 71px;
+  left: 26px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 211px;
+  height: 113px;
+}
+.albartoverlay {
+  position: relative;
+  background-color: var(--color-gray-300);
+  width: 263px;
+  height: 278px;
+  overflow: hidden;
+  max-width: 90%;
+  max-height: 90%;
+  text-align: center;
+  font-size: 32px;
+  color: var(--color-white);
+  font-family: var(--font-inter);
+}
