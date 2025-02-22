@@ -2,13 +2,19 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="initial-scale=1, width=device-width" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
     <title>Muse - Music Player</title>
     <meta
       name="description"
       content="Welcome to Muse.
 Your gateway to a world of music."
     />
+    <script>
+      // Redirect to mobile version if screen width is less than or equal to 768px
+      if (window.innerWidth <= 768) {
+        window.location.href = "mobile.html"; // Replace with your mobile version URL
+      }
+    </script>
     <link rel="stylesheet" href="./global.css" />
     <link rel="stylesheet" href="./index.css" />
     <link
