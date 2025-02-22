@@ -1,801 +1,932 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Muse - Music Player</title>
-    <meta
-      name="description"
-      content="Welcome to Muse.
-Your gateway to a world of music."
-    />
-    <script>
-      // Redirect to mobile version if screen width is less than or equal to 768px
-      if (window.innerWidth <= 768) {
-        window.location.href = "mobile.html"; // Replace with your mobile version URL
-      }
-    </script>
-    <link rel="stylesheet" href="./global.css" />
-    <link rel="stylesheet" href="./index.css" />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap"
-    />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Roboto:wght@400&display=swap"
-    />
-  </head>
-  <body>
-    <div class="main">
-      <div class="central">
-        <div class="background">
-          <img class="imagebg-icon" alt="" src="./public/imagebg@2x.png" />
-        </div>
-        <button class="startb" data-scroll-to="startb" id="startb"></button>
-        <div class="hero" id="text">
-          <b class="welcome-to-muse">Welcome to Muse</b>
-          <div class="muse-your-gateway-container">
-            <p class="muse-your-gateway">
-              Muse: Your gateway to a world of music.
-            </p>
-            <p class="muse-your-gateway">&nbsp;</p>
-            <p class="muse-your-gateway">
-              Discover new artists, create playlists, and let the rhythm inspire
-              your every moment.
-            </p>
-            <p class="muse-your-gateway">&nbsp;</p>
-            <p class="muse-your-gateway">
-              Stream your favorite tracks and discover new beats that will move
-              your soul.
-            </p>
-            <p class="muse-your-gateway">
-              Let Muse be your guide on a journey of sound and emotion.
-            </p>
-            <p class="muse-your-gateway">&nbsp;</p>
-            <p class="muse-your-gateway">
-              Experience the power of music with Muse.
-            </p>
-          </div>
-          <button class="start" id="sTART" onclick="window.location.href='https://music-three-1k9a-git-main-anandifys-projects.vercel.app/'">START</button>
-        </div>
-      </div>
-      <div class="albumcarousel">
-        <div class="singlesform">
-          <b class="latest-singles">LATEST SINGLES</b>
-          <div class="s">
-            <div class="s-child"></div>
-            <div class="div">00</div>
-            <button class="iconsetting" id="iconSetting">
-              <div class="iconsetting-child"></div>
-              <img
-                class="iconsetting-item"
-                alt=""
-                src="./public/ellipse-67.svg"
-              />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-              <img
-                class="iconsetting-inner"
-                alt=""
-                src="./public/ellipse-67.svg"
-              />
+        body {
+            background-color: #000;
+            color: #fffe;
+            line-height: normal;
+        }
 
-              <img class="ellipse-icon" alt="" src="./public/ellipse-67.svg" />
-            </button>
-            <img class="s-item" alt="" src="./public/ellipse-74@2x.png" />
+        .hero {
+            background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+                        url('public/dark.jpeg') no-repeat center center;
+            background-size: cover;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            gap: 4px;
+        }
 
-            <button class="button">+</button>
-            <button class="feel-good-inc">Feel Good Inc.</button>
-            <button class="gorillaz">Gorillaz</button>
-          </div>
-          <div class="s">
-            <div class="s-child"></div>
-            <div class="div1">01</div>
-            <button class="iconsetting1" id="iconSetting1">
-              <div class="iconsetting-child"></div>
-              <img
-                class="iconsetting-item"
-                alt=""
-                src="./public/ellipse-67.svg"
-              />
+        .hero h1 {
+            font-family: 'Inter', sans-serif;
+            font-size: 4rem;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
 
-              <img
-                class="iconsetting-inner"
-                alt=""
-                src="./public/ellipse-67.svg"
-              />
+        .hero p {
+            font-family: 'Roboto', sans-serif;
+            font-size: 1rem;
+            margin-bottom: 15px;
+            max-width: 800px;
+            line-height: 1;
+        }
 
-              <img class="ellipse-icon" alt="" src="./public/ellipse-67.svg" />
-            </button>
-            <img class="s-item" alt="" src="./public/ellipse-75@2x.png" />
+        .start-button {
+            background-color: rgba(255, 255, 255, 0.2);
+            color: white;
+            border: none;
+            padding: 15px 40px;
+            font-size: 1.1rem;
+            border-radius: 25px;
+            cursor: pointer;
+            margin-top: 20px;
+            transition: background-color 0.3s ease;
+        }
 
-            <button class="button1">+</button>
-            <button class="get-lucky">Get Lucky</button>
-            <button class="daft-punk">Daft Punk</button>
-          </div>
-          <div class="s">
-            <div class="s-child"></div>
-            <div class="div2">02</div>
-            <button class="iconsetting1" id="iconSetting2">
-              <div class="iconsetting-child"></div>
-              <img
-                class="iconsetting-item"
-                alt=""
-                src="./public/ellipse-67.svg"
-              />
+        .start-button:hover {
+            background-color: rgba(255, 255, 255, 0.3);
+        }
 
-              <img
-                class="iconsetting-inner"
-                alt=""
-                src="./public/ellipse-67.svg"
-              />
+        .album-section {
+            padding: 40px 20px;
+        }
 
-              <img class="ellipse-icon" alt="" src="./public/ellipse-67.svg" />
-            </button>
-            <img class="s-item" alt="" src="./public/ellipse-76@2x.png" />
+        .album-section h2 {
+            margin-bottom: 30px;
+            font-size: 1.8rem;
+        }
 
-            <button class="button">+</button>
-            <button class="get-lucky">Ace of Spades</button>
-            <button class="daft-punk">Motorhead</button>
-          </div>
-          <div class="s">
-            <div class="s-child"></div>
-            <div class="div2">03</div>
-            <button class="iconsetting1" id="iconSetting3">
-              <div class="iconsetting-child"></div>
-              <img
-                class="iconsetting-item"
-                alt=""
-                src="./public/ellipse-67.svg"
-              />
+        .album-carousel {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 20px;
+            position: relative;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
 
-              <img
-                class="iconsetting-inner"
-                alt=""
-                src="./public/ellipse-67.svg"
-              />
+        .album-carousel img {
+            width: 200px;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 5px;
+            transition: transform 0.3s ease;
+        }
 
-              <img class="ellipse-icon" alt="" src="./public/ellipse-67.svg" />
-            </button>
-            <img class="s-item" alt="" src="./public/ellipse-77@2x.png" />
+        .album-carousel img:hover {
+            transform: scale(1.05);
+        }
 
-            <button class="button" data-scroll-to="button3" id="button3">
-              +
-            </button>
-            <button class="get-lucky">My War</button>
-            <button class="daft-punk">Black Flag</button>
-          </div>
-        </div>
-        <div class="albumform">
-          <b class="latest-album">LATEST ALBUM</b>
-          <div class="s">
-            <div class="s-child"></div>
-            <div class="div">00</div>
-            <button class="iconsetting4" id="iconSetting4">
-              <div class="iconsetting-child"></div>
-              <img
-                class="iconsetting-item"
-                alt=""
-                src="./public/ellipse-67.svg"
-              />
+        .carousel-nav {
+            font-size: 2rem;
+            color: white;
+            cursor: pointer;
+            background: none;
+            border: none;
+            padding: 10px;
+        }
 
-              <img
-                class="iconsetting-inner"
-                alt=""
-                src="./public/ellipse-67.svg"
-              />
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+                padding: 0.25rem;
+            }
 
-              <img class="ellipse-icon" alt="" src="./public/ellipse-67.svg" />
-            </button>
-            <img class="a-item" alt="" src="./public/ellipse-70@2x.png" />
+            .hero p {
+                font-size: 1.05rem;
+                line-height: 1.6;
+                padding: 2px;
+            }
 
-            <img
-              class="a-inner"
-              alt=""
-              src="./public/polygon-3.svg"
-              id="polygonIcon"
-            />
-
-            <button class="random-access-memories">
-              Random Access Memories
-            </button>
-            <button class="daft-punk1">Daft Punk</button>
-          </div>
-          <div class="s">
-            <div class="s-child"></div>
-            <div class="div1">01</div>
-            <img class="a-item" alt="" src="./public/ellipse-71@2x.png" />
-
-            <button class="glow-on">Glow On</button>
-            <button class="turnstile">Turnstile</button>
-            <button class="iconsetting5" id="iconSetting5">
-              <div class="iconsetting-child"></div>
-              <img
-                class="iconsetting-item"
-                alt=""
-                src="./public/ellipse-67.svg"
-              />
-
-              <img
-                class="iconsetting-inner"
-                alt=""
-                src="./public/ellipse-67.svg"
-              />
-
-              <img class="ellipse-icon" alt="" src="./public/ellipse-67.svg" />
-            </button>
-            <button class="button1" data-scroll-to="button2" id="button2">
-              +
-            </button>
-          </div>
-          <div class="s">
-            <div class="s-child"></div>
-            <div class="div2">02</div>
-            <img class="a-item" alt="" src="./public/ellipse-72@2x.png" />
-
-            <button class="button" data-scroll-to="button1" id="button1">
-              +
-            </button>
-            <button class="glow-on">Dopethrone</button>
-            <button class="turnstile">Electric Wizard</button>
-            <button class="iconsetting5" id="iconSetting6">
-              <div class="iconsetting-child"></div>
-              <img
-                class="iconsetting-item"
-                alt=""
-                src="./public/ellipse-67.svg"
-              />
-
-              <img
-                class="iconsetting-inner"
-                alt=""
-                src="./public/ellipse-67.svg"
-              />
-
-              <img class="ellipse-icon" alt="" src="./public/ellipse-67.svg" />
-            </button>
-          </div>
-          <div class="s">
-            <div class="s-child"></div>
-            <div class="div2">03</div>
-            <img class="a-item" alt="" src="./public/ellipse-73@2x.png" />
-
-            <button class="button" data-scroll-to="button" id="button">
-              +
-            </button>
-            <button class="glow-on">The Narcotic Story</button>
-            <button class="turnstile">Oxbow</button>
-            <button class="iconsetting5" id="iconSetting7">
-              <div class="iconsetting-child"></div>
-              <img
-                class="iconsetting-item"
-                alt=""
-                src="./public/ellipse-67.svg"
-              />
-
-              <img
-                class="iconsetting-inner"
-                alt=""
-                src="./public/ellipse-67.svg"
-              />
-
-              <img class="ellipse-icon" alt="" src="./public/ellipse-67.svg" />
-            </button>
-          </div>
-        </div>
-      </div>
-      <div class="slideralbum" id="SliderAlbum">
-        <img
-          class="left-icon"
-          alt=""
-          src="./public/left.svg"
-          data-scroll-to="leftIcon"
-          id="leftIcon"
-        />
-
-        <img
-          class="slideralbum-child"
-          alt=""
-          src="./public/rectangle-5@2x.png"
-          id="rectangleImage"
-        />
-
-        <img
-          class="slideralbum-child"
-          alt=""
-          src="./public/rectangle-6@2x.png"
-          id="rectangleImage1"
-        />
-
-        <img
-          class="slideralbum-child"
-          alt=""
-          src="./public/rectangle-7@2x.png"
-          id="rectangleImage2"
-        />
-
-        <img
-          class="slideralbum-child"
-          alt=""
-          src="./public/rectangle-8@2x.png"
-          id="rectangleImage3"
-        />
-
-        <img
-          class="slideralbum-child"
-          alt=""
-          src="./public/rectangle-9@2x.png"
-          id="rectangleImage4"
-        />
-
-        <img
-          class="left-icon"
-          alt=""
-          src="./public/right.svg"
-          data-scroll-to="rightIcon"
-          id="rightIcon"
-        />
-      </div>
-      <b class="top-album">TOP ALBUM</b>
-      <div class="player">
-        <div class="musicplayer">
-          <img
-            class="mask-group-icon"
-            alt=""
-            src="./public/mask-group@2x.png"
-            id="maskGroupIcon"
-          />
-
-          <button class="death-grips" id="deathGrips">Death Grips</button>
-          <button class="death-grips-is">Death Grips is Online</button>
-          <img
-            class="back-icon"
-            alt=""
-            src="./public/back@2x.png"
-            data-scroll-to="backIcon"
-            id="backIcon"
-          />
-
-          <img
-            class="playbutton-icon"
-            alt=""
-            src="./public/playbutton.svg"
-            data-scroll-to="playButtonIcon"
-            id="playButtonIcon"
-          />
-
-          <img
-            class="back-icon"
-            alt=""
-            src="./public/next@2x.png"
-            data-scroll-to="nextIcon"
-            id="nextIcon"
-          />
-
-          <div class="tracktime">
-            <div class="tracktime-child"></div>
-            <div class="tracktime-item"></div>
-            <img
-              class="tracktime-inner"
-              alt=""
-              src="./public/ellipse-1.svg"
-              data-scroll-to="ellipseIcon"
-              id="ellipseIcon"
-            />
-          </div>
-        </div>
-      </div>
+            .album-carousel img {
+                width: 150px;
+                height: 150px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="hero">
+        <h1>Welcome to Muse</h1>
+        <p>Muse: Your gateway to a world of music.</p>
+        <p>Discover new artists, create playlists, and let the rhythm inspire your every moment.</p>
+        <p>Stream your favorite tracks and discover new beats that will move your soul.
+        <p>Let Muse be your guide on a journey of sound and emotion.</p>
+        <p>Experience the power of music with Muse.</p>
+        <button class="start-button">START</button>
     </div>
 
-    <div id="albArtOverlayPopup" class="popup-overlay" style="display: none">
-      <div class="albartoverlay">
-        <div class="album-details">Album Details</div>
-      </div>
+    <div class="album-section">
+        <h2>TOP ALBUMS</h2>
+        <div class="album-carousel">
+            <button class="carousel-nav prev">&#8249;</button>
+            <div class="carousel-container">
+                <div class="carousel-track">
+                    <div class="carousel-slide">
+                        <img src="public/rectangle-5@2x.png" alt="Kyuss Album">
+                        <p class="album-title">Kyuss - Welcome to Sky Valley</p>
+                    </div>
+                    <div class="carousel-slide">
+                        <img src="public/rectangle-6@2x.png" alt="Pink Clouds Album">
+                        <p class="album-title">Axwell /\ Ingrosso - More Than You Know</p>
+                    </div>
+                    <div class="carousel-slide">
+                        <img src="public/rectangle-7@2x.png" alt="Nine Inch Nails Album">
+                        <p class="album-title">Nine Inch Nails - The Downward Spiral</p>
+                    </div>
+                    <div class="carousel-slide">
+                        <img src="public/rectangle-8@2x.png" alt="Red Hot Chili Peppers Album">
+                        <p class="album-title">Red Hot Chili Peppers - Blood Sugar Sex Magik</p>
+                    </div>
+                    <div class="carousel-slide">
+                        <img src="public/rectangle-9@2x.png" alt="Queens of the Stone Age Album">
+                        <p class="album-title">Queens of the Stone Age - Songs for the Deaf</p>
+                    </div>
+                </div>
+            </div>
+            <button class="carousel-nav next">&#8250;</button>
+        </div>
     </div>
+    
+    <style>
+    .album-section {
+        padding: 20px;
+        width: 100%;
+        background-color: #000;
+    }
+    
+    .album-section h2 {
+        color: #fff;
+        font-family: 'Inter', sans-serif;
+        margin-bottom: 20px;
+        font-size: 24px;
+    }
+    
+    .album-carousel {
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        max-width: 100%;
+        margin: 0 auto;
+    }
+    
+    .carousel-container {
+        width: 100%;
+        overflow: hidden;
+        position: relative;
+    }
+    
+    .carousel-track {
+        display: flex;
+        transition: transform 0.3s ease-in-out;
+    }
+    
+    .carousel-slide {
+        min-width: 25%; /* Show 4 items in desktop */
+        padding: 0 10px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .carousel-slide img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+}
+    
+    .album-title {
+        color: #fff;
+        font-family: 'Roboto', sans-serif;
+        font-size: 14px;
+        text-align: center;
+        margin-top: 8px;
+        max-width: 250px;
+    }
+    
+    .carousel-nav {
+        background: transparent;
+        border: none;
+        color: white;
+        font-size: 36px;
+        cursor: pointer;
+        padding: 10px;
+        margin: 0 15px;
+        z-index: 2;
+    }
+    
+    .carousel-nav:hover {
+        opacity: 0.8;
+    }
+    
+    @media (max-width: 768px) {
+        .carousel-slide {
+            min-width: 100%; /* Show 1 item in mobile */
+        }
+        .carousel-slide img {
+            width: 200px;
+            height: 200px;
+        }
+        
+    }
+    </style>
+    <div class="outer-container">
+    <div class="latest-album-section">
+        <h2>LATEST ALBUMS</h2>
+        <div class="album-list">
+            <div class="album-item">
+                <span class="track-number">00</span>
+                <div class="play-button">+</div>
+                <img src="public/ellipse-70@2x.png" alt="Album Art" class="album-art">
+                <div class="track-info">
+                    <div class="track-name">Random Access Memories</div>
+                    <div class="artist-name">Daft Punk</div>
+                </div>
+                <div class="more-options">⋯</div>
+            </div>
+            
+            <div class="album-item">
+                <span class="track-number">01</span>
+                <div class="add-button">▶</div>
+                <img src="public/ellipse-71@2x.png" alt="Album Art" class="album-art">
+                <div class="track-info">
+                    <div class="track-name">In a time lapse</div>
+                    <div class="artist-name">Ludovico Einaudi</div>
+                </div>
+                <div class="more-options">⋯</div>
+            </div>
+    
+            <div class="album-item">
+                <span class="track-number">02</span>
+                <div class="add-button">+</div>
+                <img src="public/ellipse-72@2x.png" alt="Album Art" class="album-art">
+                <div class="track-info">
+                    <div class="track-name">Dopethrone</div>
+                    <div class="artist-name">Electric Wizard</div>
+                </div>
+                <div class="more-options">⋯</div>
+            </div>
+    
+            <div class="album-item">
+                <span class="track-number">03</span>
+                <div class="add-button">+</div>
+                <img src="public/ellipse-73@2x.png" alt="Album Art" class="album-art">
+                <div class="track-info">
+                    <div class="track-name">The Narcotic Story</div>
+                    <div class="artist-name">Oxbow</div>
+                </div>
+                <div class="more-options">⋯</div>
+            </div>
+        </div>
+    </div>
+    
+    <style>
+    .outer-container {
+    display: flex;
+    flex-direction: row; 
+    gap: 10px; 
+    transition: padding-bottom 0.3s ease;
+    }
+    .latest-album-section {
+        padding: 20px;
+        background-color: #000;
+        color: #fff;
+        flex: 1;
+    }
+    
+    .latest-album-section h2 {
+        font-family: 'Inter', sans-serif;
+        font-size: 24px;
+        margin-bottom: 20px;
+    }
+    
+    .album-list {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+    }
+    
+    .album-item {
+        display: flex;
+        align-items: center;
+        padding: 10px;
+        gap: 15px;
+    }
+    
+    .track-number {
+        font-family: 'Roboto', sans-serif;
+        color: #666;
+        width: 30px;
+    }
+    
+    .play-button, .add-button {
+        width: 30px;
+        height: 30px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        color: #fff;
+    }
+    
+    .album-art {
+        width: 40px;
+        height: 40px;
+        object-fit: cover;
+    }
+    
+    .track-info {
+        flex-grow: 1;
+    }
+    
+    .track-name {
+        font-family: 'Roboto', sans-serif;
+        font-size: 16px;
+        color: #fff;
+    }
+    
+    .artist-name {
+        font-family: 'Roboto', sans-serif;
+        font-size: 14px;
+        color: #666;
+    }
+    
+    .more-options {
+        padding: 10px;
+        cursor: pointer;
+        color: #666;
+    }
+    
+    @media (max-width: 768px) {
+        .album-item {
+            padding: 8px;
+        }
+        
+        .track-name {
+            font-size: 14px;
+        }
+        
+        .artist-name {
+            font-size: 12px;
+        }
+    }
+    </style>
 
-    <script>
-      var startb = document.getElementById("startb");
-      if (startb) {
-        startb.addEventListener("click", function () {
-          var anchor = document.querySelector("[data-scroll-to='startb']");
-          if (anchor) {
-            anchor.scrollIntoView({ block: "start", behavior: "smooth" });
-          }
+<div class="latest-singles-section">
+    <h2>LATEST SINGLES</h2>
+    <div class="singles-list">
+        <div class="single-item">
+            <span class="track-number">00</span>
+            <div class="add-button">+</div>
+            <img src="public/ellipse-74@2x.png" alt="Single Art" class="single-art">
+            <div class="track-info">
+                <div class="track-name">Feel Good Inc.</div>
+                <div class="artist-name">Gorillaz</div>
+            </div>
+            <div class="more-options">⋯</div>
+        </div>
+
+        <div class="single-item">
+            <span class="track-number">01</span>
+            <div class="add-button">+</div>
+            <img src="public/ellipse-75@2x.png" alt="Single Art" class="single-art">
+            <div class="track-info">
+                <div class="track-name">War Zone</div>
+                <div class="artist-name">Unknown Brain Ft. MIME</div>
+            </div>
+            <div class="more-options">⋯</div>
+        </div>
+
+        <div class="single-item">
+            <span class="track-number">02</span>
+            <div class="add-button">+</div>
+            <img src="public/ellipse-76@2x.png" alt="Single Art" class="single-art">
+            <div class="track-info">
+                <div class="track-name">Renegade</div>
+                <div class="artist-name">Axwell /\ Ingrosso</div>
+            </div>
+            <div class="more-options">⋯</div>
+        </div>
+
+        <div class="single-item">
+            <span class="track-number">03</span>
+            <div class="add-button">+</div>
+            <img src="public/ellipse-77@2x.png" alt="Single Art" class="single-art">
+            <div class="track-info">
+                <div class="track-name">My War</div>
+                <div class="artist-name">Black Flag</div>
+            </div>
+            <div class="more-options">⋯</div>
+        </div>
+    </div>
+</div>
+
+<style>
+.latest-singles-section {
+    padding: 20px;
+    background-color: #000;
+    color: #fff;
+    flex: 1;
+}
+
+.latest-singles-section h2 {
+    font-family: 'Inter', sans-serif;
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+.single-art {
+    width: 40px;
+    height: 40px;
+    object-fit: cover;
+
+}
+
+.singles-list {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.single-item {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    gap: 15px;
+}
+</style>  
+</div>  
+    <!-- Mood Muse Section -->
+    <div class="mood-muse">
+        <h2>Mood Muse: AI Music Visualiser</h2>
+        <p>
+            Want to see your music come to life? 🎶✨<br><br>
+            Mood Muse analyzes your song’s mood and generates stunning 3D visualizations in real time.<br>
+            Just upload your MP3 and experience music like never before!
+        </p>
+        <button class="mood-muse-button" onclick="window.location.href='https://music-three-beta1.vercel.app/';">
+            Take Me There <br> (Experimental)
+        </button>
+    </div>  
+    <style>
+    /* Importing VCR OSD Mono font */
+    @import url('https://fonts.cdnfonts.com/css/vcr-osd-mono');
+
+    /* Mood Muse Section Styling */
+    .mood-muse {
+        font-family: 'VCR OSD Mono', sans-serif; /* Retro font */
+        color: #fff; /* White text */
+        padding: 20px;
+        box-sizing: border-box;
+    }
+
+    .mood-muse h2 {
+        font-size: 1.8em;
+        margin-bottom: 15px;
+    }
+
+    .mood-muse p {
+        font-family: 'Roboto', sans-serif;
+        font-size: 1.2em;
+        line-height: 1.6;
+        margin-bottom: 20px;
+    }
+
+    .mood-muse-button {
+        font-family: 'VCR OSD Mono', sans-serif;
+        font-size: 1em;
+        color: #000;
+        background-color: #fff; /* White button with black text */
+        padding: 10px 20px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s ease, color 0.3s ease;
+    }
+
+    .mood-muse-button:hover {
+        background-color: #000; /* Invert colors on hover */
+        color: #fff;
+    }
+    @media (max-width: 768px) {
+    .mood-muse h2 {
+        font-size: 1.8em;
+        margin-bottom: 15px;
+    }
+    .mood-muse p {
+        font-size: 1.2em;
+        gap: 20px;
+    }
+    }
+
+    </style>
+<div class="global-player">
+    <button class="close-player">×</button>
+    <div class="player-content">
+        <div class="now-playing">
+            <img src="public/Experience.png" alt="Album Art" class="player-album-art">
+            <div class="track-details">
+                <div class="track-title">Experience</div>
+                <div class="track-subtitle">Ludovico Einaudi</div>
+            </div>
+        </div>
+        
+        <div class="player-controls">
+            <button class="control-btn previous">◄◄</button>
+            <button class="control-btn play">▶</button>
+            <button class="control-btn next">►►</button>
+        </div>
+        
+        <div class="progress-bar">
+            <div class="progress"></div>
+        </div>
+    </div>
+</div>
+
+<style>
+.global-player {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: #111;
+    padding: 10px 20px;
+    z-index: 1000;
+    border-top: 1px solid #222;
+    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.5);
+    /* Add animation for smooth transition */
+    transition: transform 0.3s ease-in-out;
+    transform: translateY(100%);
+}
+
+.global-player.show {
+    transform: translateY(0);
+}
+
+.close-player {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: none;
+    border: none;
+    color: #666;
+    font-size: 24px;
+    cursor: pointer;
+    padding: 5px;
+    line-height: 1;
+}
+
+.close-player:hover {
+    color: #fff;
+}
+
+.player-content {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.now-playing {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    min-width: 200px;
+}
+
+.player-album-art {
+    width: 40px;
+    height: 40px;
+    border-radius: 4px;
+}
+
+.track-details {
+    color: #fff;
+}
+
+.track-title {
+    font-family: 'Roboto', sans-serif;
+    font-size: 14px;
+}
+
+.track-subtitle {
+    font-family: 'Roboto', sans-serif;
+    font-size: 12px;
+    color: #666;
+}
+
+.player-controls {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    padding: 7.5px;
+}
+
+.control-btn {
+    background: none;
+    border: none;
+    color: #fff;
+    cursor: pointer;
+    padding: 5px;
+}
+
+.control-btn.play{
+    font-size: 20px;
+}
+
+.control-btn:hover {
+    color: #999;
+}
+
+.progress-bar {
+    flex-grow: 1;
+    height: 4px;
+    background-color: #333;
+    border-radius: 2px;
+    position: relative;
+}
+
+.progress {
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    background-color: #fff;
+    border-radius: 2px;
+    width: 30%;
+}
+
+@media (max-width: 768px) {
+    .outer-container{
+        flex-direction: column;
+    }
+    .player-content {
+        flex-direction: column;
+        gap: 10px;
+    }
+    .progress-bar {
+        width: 100%;
+    }
+}
+</style>
+
+<script>
+    class MusicPlayer {
+    constructor() {
+        this.audio = new Audio();
+        this.isPlaying = false;
+        this.currentTrack = null;
+        this.playlist = [];
+        this.player = document.querySelector('.global-player');
+        this.currentIndex = 0;
+        this.player.style.display = 'none';
+        
+        this.player.classList.remove('show');
+        
+        this.initializeControls();
+        this.initializeEventListeners();
+        this.audioUrls = {
+        
+        // Latest Albums
+        'Random Access Memories': 'url_for_daft_punk_ram.mp3',
+        'Glow On': 'url_for_turnstile.mp3',
+        'Dopethrone': 'url_for_electric_wizard.mp3',
+        'The Narcotic Story': 'url_for_oxbow.mp3',
+        
+        // Latest Singles
+        'Feel Good Inc.': 'url_for_gorillaz.mp3',
+        'War Zone': 'https://anandify.s3.ap-south-1.amazonaws.com/unknown-brain-war-zone.mp3',
+        'Renegade': 'https://anandify.s3.ap-south-1.amazonaws.com/Renegade.mp3',
+        'My War': 'url_for_black_flag.mp3'
+    };
+    }
+
+    initializeControls() {
+        this.playButton = document.querySelector('.play');
+        this.progressBar = document.querySelector('.progress');
+        this.playerArt = document.querySelector('.player-album-art');
+        this.trackTitle = document.querySelector('.track-title');
+        this.trackSubtitle = document.querySelector('.track-subtitle');
+        this.progressBarContainer = document.querySelector('.progress-bar');
+    }
+
+    initializeEventListeners() {
+        const startButton = document.querySelector('.start-button');
+        const targetSection = document.querySelector(".latest-singles-section");
+        startButton.addEventListener('click', () => {  
+            if (targetSection) {
+                targetSection.scrollIntoView({ behavior: "smooth" });
+            }
+            this.showPlayer();
+            this.playTrack(1);
         });
-      }
-      
-      var sTART = document.getElementById("sTART");
-      if (sTART) {
-        sTART.addEventListener("click", function () {
-          var anchor = document.querySelector("[data-scroll-to='sTART']");
-          if (anchor) {
-            anchor.scrollIntoView({ block: "start", behavior: "smooth" });
-          }
+
+        // Album/Singles click listeners
+        document.querySelectorAll('.album-item, .single-item').forEach((item, index) => {
+            item.addEventListener('click', () => {
+                this.showPlayer();
+                this.playTrack(index);
+            });
         });
-      }
-      
-      var iconSetting = document.getElementById("iconSetting");
-      if (iconSetting) {
-        iconSetting.addEventListener("click", function () {
-          var popup = document.getElementById("albArtOverlayPopup");
-          if (!popup) return;
-          var popupStyle = popup.style;
-          if (popupStyle) {
-            popupStyle.display = "flex";
-            popupStyle.zIndex = 100;
-            popupStyle.backgroundColor = "";
-            popupStyle.alignItems = "center";
-            popupStyle.justifyContent = "center";
-          }
-          popup.setAttribute("closable", "");
-      
-          var onClick =
-            popup.onClick ||
-            function (e) {
-              if (e.target === popup && popup.hasAttribute("closable")) {
-                popupStyle.display = "none";
-              }
-            };
-          popup.addEventListener("click", onClick);
+
+        // Player control listeners
+        this.playButton.addEventListener('click', () => this.togglePlay());
+
+        // Audio event listeners
+        this.audio.addEventListener('timeupdate', () => this.updateProgress());
+        this.audio.addEventListener('ended', () => this.playNext());
+
+        // Top Album carousel click listeners
+        document.querySelectorAll('.carousel-slide img').forEach((img, index) => {
+            img.addEventListener('click', () => {
+                this.showPlayer();
+                this.playTrack(index);
+            });
         });
-      }
-      
-      var iconSetting1 = document.getElementById("iconSetting1");
-      if (iconSetting1) {
-        iconSetting1.addEventListener("click", function () {
-          var popup = document.getElementById("albArtOverlayPopup");
-          if (!popup) return;
-          var popupStyle = popup.style;
-          if (popupStyle) {
-            popupStyle.display = "flex";
-            popupStyle.zIndex = 100;
-            popupStyle.backgroundColor = "";
-            popupStyle.alignItems = "center";
-            popupStyle.justifyContent = "center";
-          }
-          popup.setAttribute("closable", "");
-      
-          var onClick =
-            popup.onClick ||
-            function (e) {
-              if (e.target === popup && popup.hasAttribute("closable")) {
-                popupStyle.display = "none";
-              }
-            };
-          popup.addEventListener("click", onClick);
+        // Separate carousel navigation from music controls
+        const carouselPrev = document.querySelector('.carousel-nav.prev');
+        const carouselNext = document.querySelector('.carousel-nav.next');
+        const carouselTrack = document.querySelector('.carousel-track');
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.carousel-slide');
+        
+        carouselPrev.addEventListener('click', (e) => {
+            e.stopPropagation(); // Prevent event bubbling
+            currentSlide = (currentSlide > 0) ? currentSlide - 1 : slides.length - 1;
+            carouselTrack.style.transform = `translateX(-${currentSlide * 100}%)`;
         });
-      }
-      
-      var iconSetting2 = document.getElementById("iconSetting2");
-      if (iconSetting2) {
-        iconSetting2.addEventListener("click", function () {
-          var popup = document.getElementById("albArtOverlayPopup");
-          if (!popup) return;
-          var popupStyle = popup.style;
-          if (popupStyle) {
-            popupStyle.display = "flex";
-            popupStyle.zIndex = 100;
-            popupStyle.backgroundColor = "";
-            popupStyle.alignItems = "center";
-            popupStyle.justifyContent = "center";
-          }
-          popup.setAttribute("closable", "");
-      
-          var onClick =
-            popup.onClick ||
-            function (e) {
-              if (e.target === popup && popup.hasAttribute("closable")) {
-                popupStyle.display = "none";
-              }
-            };
-          popup.addEventListener("click", onClick);
+        
+        carouselNext.addEventListener('click', (e) => {
+            e.stopPropagation(); // Prevent event bubbling
+            currentSlide = (currentSlide < slides.length - 1) ? currentSlide + 1 : 0;
+            carouselTrack.style.transform = `translateX(-${currentSlide * 100}%)`;
         });
-      }
-      
-      var iconSetting3 = document.getElementById("iconSetting3");
-      if (iconSetting3) {
-        iconSetting3.addEventListener("click", function () {
-          var popup = document.getElementById("albArtOverlayPopup");
-          if (!popup) return;
-          var popupStyle = popup.style;
-          if (popupStyle) {
-            popupStyle.display = "flex";
-            popupStyle.zIndex = 100;
-            popupStyle.backgroundColor = "";
-            popupStyle.alignItems = "center";
-            popupStyle.justifyContent = "center";
-          }
-          popup.setAttribute("closable", "");
-      
-          var onClick =
-            popup.onClick ||
-            function (e) {
-              if (e.target === popup && popup.hasAttribute("closable")) {
-                popupStyle.display = "none";
-              }
-            };
-          popup.addEventListener("click", onClick);
+
+        // Add click and drag functionality to progress bar
+        this.progressBarContainer.addEventListener('click', (e) => this.seek(e));
+        this.progressBarContainer.addEventListener('mousedown', (e) => {
+        this.isDragging = true;
+        this.seek(e);
+        
+        const mouseMoveHandler = (e) => {
+            if (this.isDragging) {
+                this.seek(e);
+            }
+        };
+        
+        const mouseUpHandler = () => {
+            this.isDragging = false;
+            document.removeEventListener('mousemove', mouseMoveHandler);
+            document.removeEventListener('mouseup', mouseUpHandler);
+        };
+        document.addEventListener('mousemove', mouseMoveHandler);
+        document.addEventListener('mouseup', mouseUpHandler);
         });
-      }
-      
-      var button3 = document.getElementById("button3");
-      if (button3) {
-        button3.addEventListener("click", function () {
-          var anchor = document.querySelector("[data-scroll-to='button3']");
-          if (anchor) {
-            anchor.scrollIntoView({ block: "center" });
-          }
-        });
-      }
-      
-      var iconSetting4 = document.getElementById("iconSetting4");
-      if (iconSetting4) {
-        iconSetting4.addEventListener("click", function () {
-          var popup = document.getElementById("albArtOverlayPopup");
-          if (!popup) return;
-          var popupStyle = popup.style;
-          if (popupStyle) {
-            popupStyle.display = "flex";
-            popupStyle.zIndex = 100;
-            popupStyle.backgroundColor = "";
-            popupStyle.alignItems = "center";
-            popupStyle.justifyContent = "center";
-          }
-          popup.setAttribute("closable", "");
-      
-          var onClick =
-            popup.onClick ||
-            function (e) {
-              if (e.target === popup && popup.hasAttribute("closable")) {
-                popupStyle.display = "none";
-              }
-            };
-          popup.addEventListener("click", onClick);
-        });
-      }
-      
-      var polygonIcon = document.getElementById("polygonIcon");
-      if (polygonIcon) {
-        polygonIcon.addEventListener("click", function (e) {
-          window.location.href = "./page1.html";
-        });
-      }
-      
-      var iconSetting5 = document.getElementById("iconSetting5");
-      if (iconSetting5) {
-        iconSetting5.addEventListener("click", function () {
-          var popup = document.getElementById("albArtOverlayPopup");
-          if (!popup) return;
-          var popupStyle = popup.style;
-          if (popupStyle) {
-            popupStyle.display = "flex";
-            popupStyle.zIndex = 100;
-            popupStyle.backgroundColor = "";
-            popupStyle.alignItems = "center";
-            popupStyle.justifyContent = "center";
-          }
-          popup.setAttribute("closable", "");
-      
-          var onClick =
-            popup.onClick ||
-            function (e) {
-              if (e.target === popup && popup.hasAttribute("closable")) {
-                popupStyle.display = "none";
-              }
-            };
-          popup.addEventListener("click", onClick);
-        });
-      }
-      
-      var button2 = document.getElementById("button2");
-      if (button2) {
-        button2.addEventListener("click", function () {
-          var anchor = document.querySelector("[data-scroll-to='button2']");
-          if (anchor) {
-            anchor.scrollIntoView({ block: "center" });
-          }
-        });
-      }
-      
-      var button1 = document.getElementById("button1");
-      if (button1) {
-        button1.addEventListener("click", function () {
-          var anchor = document.querySelector("[data-scroll-to='button1']");
-          if (anchor) {
-            anchor.scrollIntoView({ block: "center" });
-          }
-        });
-      }
-      
-      var iconSetting6 = document.getElementById("iconSetting6");
-      if (iconSetting6) {
-        iconSetting6.addEventListener("click", function () {
-          var popup = document.getElementById("albArtOverlayPopup");
-          if (!popup) return;
-          var popupStyle = popup.style;
-          if (popupStyle) {
-            popupStyle.display = "flex";
-            popupStyle.zIndex = 100;
-            popupStyle.backgroundColor = "";
-            popupStyle.alignItems = "center";
-            popupStyle.justifyContent = "center";
-          }
-          popup.setAttribute("closable", "");
-      
-          var onClick =
-            popup.onClick ||
-            function (e) {
-              if (e.target === popup && popup.hasAttribute("closable")) {
-                popupStyle.display = "none";
-              }
-            };
-          popup.addEventListener("click", onClick);
-        });
-      }
-      
-      var button = document.getElementById("button");
-      if (button) {
-        button.addEventListener("click", function () {
-          var anchor = document.querySelector("[data-scroll-to='button']");
-          if (anchor) {
-            anchor.scrollIntoView({ block: "center" });
-          }
-        });
-      }
-      
-      var iconSetting7 = document.getElementById("iconSetting7");
-      if (iconSetting7) {
-        iconSetting7.addEventListener("click", function () {
-          var popup = document.getElementById("albArtOverlayPopup");
-          if (!popup) return;
-          var popupStyle = popup.style;
-          if (popupStyle) {
-            popupStyle.display = "flex";
-            popupStyle.zIndex = 100;
-            popupStyle.backgroundColor = "";
-            popupStyle.alignItems = "center";
-            popupStyle.justifyContent = "center";
-          }
-          popup.setAttribute("closable", "");
-      
-          var onClick =
-            popup.onClick ||
-            function (e) {
-              if (e.target === popup && popup.hasAttribute("closable")) {
-                popupStyle.display = "none";
-              }
-            };
-          popup.addEventListener("click", onClick);
-        });
-      }
-      
-      var leftIcon = document.getElementById("leftIcon");
-      if (leftIcon) {
-        leftIcon.addEventListener("click", function () {
-          var anchor = document.querySelector("[data-scroll-to='leftIcon']");
-          if (anchor) {
-            anchor.scrollIntoView({ block: "center", behavior: "smooth" });
-          }
-        });
-      }
-      
-      var rectangleImage = document.getElementById("rectangleImage");
-      if (rectangleImage) {
-        rectangleImage.addEventListener("click", function (e) {
-          window.location.href = "./page1.html";
-        });
-      }
-      
-      var rectangleImage1 = document.getElementById("rectangleImage1");
-      if (rectangleImage1) {
-        rectangleImage1.addEventListener("click", function (e) {
-          window.location.href = "./page1.html";
-        });
-      }
-      
-      var rectangleImage2 = document.getElementById("rectangleImage2");
-      if (rectangleImage2) {
-        rectangleImage2.addEventListener("click", function (e) {
-          window.location.href = "./page1.html";
-        });
-      }
-      
-      var rectangleImage3 = document.getElementById("rectangleImage3");
-      if (rectangleImage3) {
-        rectangleImage3.addEventListener("click", function (e) {
-          window.location.href = "./page1.html";
-        });
-      }
-      
-      var rectangleImage4 = document.getElementById("rectangleImage4");
-      if (rectangleImage4) {
-        rectangleImage4.addEventListener("click", function (e) {
-          window.location.href = "./page1.html";
-        });
-      }
-      
-      var rightIcon = document.getElementById("rightIcon");
-      if (rightIcon) {
-        rightIcon.addEventListener("click", function () {
-          var anchor = document.querySelector("[data-scroll-to='rightIcon']");
-          if (anchor) {
-            anchor.scrollIntoView({ block: "center" });
-          }
-        });
-      }
-      
-      var maskGroupIcon = document.getElementById("maskGroupIcon");
-      if (maskGroupIcon) {
-        maskGroupIcon.addEventListener("click", function () {
-          var popup = document.getElementById("albArtOverlayPopup");
-          if (!popup) return;
-          var popupStyle = popup.style;
-          if (popupStyle) {
-            popupStyle.display = "flex";
-            popupStyle.zIndex = 100;
-            popupStyle.backgroundColor = "rgba(113, 113, 113, 0.3)";
-            popupStyle.alignItems = "flex-start";
-            popupStyle.justifyContent = "flex-end";
-          }
-          popup.setAttribute("closable", "");
-      
-          var onClick =
-            popup.onClick ||
-            function (e) {
-              if (e.target === popup && popup.hasAttribute("closable")) {
-                popupStyle.display = "none";
-              }
-            };
-          popup.addEventListener("click", onClick);
-        });
-      }
-      
-      var deathGrips = document.getElementById("deathGrips");
-      if (deathGrips) {
-        deathGrips.addEventListener("click", function (e) {
-          window.location.href = "./page1.html";
-        });
-      }
-      
-      var backIcon = document.getElementById("backIcon");
-      if (backIcon) {
-        backIcon.addEventListener("click", function () {
-          var anchor = document.querySelector("[data-scroll-to='backIcon']");
-          if (anchor) {
-            anchor.scrollIntoView({ block: "center" });
-          }
-        });
-      }
-      
-      var playButtonIcon = document.getElementById("playButtonIcon");
-      if (playButtonIcon) {
-        playButtonIcon.addEventListener("click", function () {
-          var anchor = document.querySelector("[data-scroll-to='playButtonIcon']");
-          if (anchor) {
-            anchor.scrollIntoView({ block: "end" });
-          }
-        });
-      }
-      
-      var nextIcon = document.getElementById("nextIcon");
-      if (nextIcon) {
-        nextIcon.addEventListener("click", function () {
-          var anchor = document.querySelector("[data-scroll-to='nextIcon']");
-          if (anchor) {
-            anchor.scrollIntoView({ block: "center" });
-          }
-        });
-      }
-      
-      var ellipseIcon = document.getElementById("ellipseIcon");
-      if (ellipseIcon) {
-        ellipseIcon.addEventListener("click", function () {
-          var anchor = document.querySelector("[data-scroll-to='ellipseIcon']");
-          if (anchor) {
-            anchor.scrollIntoView({ block: "nearest" });
-          }
-        });
-      }
-      </script>
-  </body>
+        const closeButton = document.querySelector('.close-player');
+        closeButton.addEventListener('click', () => {
+        this.player.classList.remove('show');
+        setTimeout(() => {
+            this.player.style.display = 'none';
+            // Reset body padding when player is closed
+            document.body.style.paddingBottom = '0';
+        }, 300); // Match the transition duration
+        
+        // Stop the music when closing
+        if (this.audio) {
+            this.audio.pause();
+            this.isPlaying = false;
+            this.playButton.textContent = '▶';
+        }
+    });
+    }
+
+    playTrack(index) {
+    const tracks = [...document.querySelectorAll('.album-item, .single-item')];
+    const track = tracks[index];
+    const trackName = track.querySelector('.track-name').textContent;
+    
+    // Update current track info
+    this.currentTrack = {
+        title: trackName,
+        artist: track.querySelector('.artist-name').textContent,
+        artwork: track.querySelector('img').src,
+        audioSrc: this.audioUrls[trackName] || 'https://anandify.s3.ap-south-1.amazonaws.com/Experience.mp3'
+    };
+
+    // Update player UI
+    this.updatePlayerUI();
+    
+    // Play the track
+    this.audio.src = this.currentTrack.audioSrc;
+    this.audio.play();
+    this.isPlaying = true;
+    this.playButton.textContent = '❚❚';
+}
+
+    togglePlay() {
+        if (!this.currentTrack) return;
+        
+        if (this.isPlaying) {
+            this.audio.pause();
+            this.playButton.textContent = '▶';
+        } else {
+            this.audio.play();
+            this.playButton.textContent = '❚❚';
+        }
+        this.isPlaying = !this.isPlaying;
+    }
+
+    playNext() {
+        const tracks = document.querySelectorAll('.album-item, .single-item');
+        this.currentIndex = (this.currentIndex + 1) % tracks.length;
+        this.playTrack(this.currentIndex);
+    }
+
+    playPrevious() {
+        const tracks = document.querySelectorAll('.album-item, .single-item');
+        this.currentIndex = (this.currentIndex - 1 + tracks.length) % tracks.length;
+        this.playTrack(this.currentIndex);
+    }
+
+    updateProgress() {
+        const progress = (this.audio.currentTime / this.audio.duration) * 100;
+        this.progressBar.style.width = `${progress}%`;
+    }
+
+    updatePlayerUI() {
+        this.playerArt.src = this.currentTrack.artwork;
+        this.trackTitle.textContent = this.currentTrack.title;
+        this.trackSubtitle.textContent = this.currentTrack.artist;
+    }
+    seek(e) {
+    const rect = this.progressBarContainer.getBoundingClientRect();
+    const pos = (e.clientX - rect.left) / rect.width;
+    const seekTime = pos * this.audio.duration;
+    
+    if (isFinite(seekTime)) {
+        this.audio.currentTime = seekTime;
+        this.updateProgress();
+        }
+    }
+
+    showPlayer() {
+        this.player.style.display = 'block';
+        // Add small delay for smooth animation
+        setTimeout(() => {
+            this.player.classList.add('show');
+        }, 10);
+    }
+
+}
+
+// Initialize the music player when the DOM is loaded
+document.addEventListener('DOMContentLoaded', () => {
+    const player = new MusicPlayer();
+});
+function updateBodyPadding() {
+    const player = document.querySelector('.global-player');
+    if (player && window.getComputedStyle(player).display !== 'none') {
+        const playerHeight = player.offsetHeight;
+        document.body.style.paddingBottom = `${playerHeight}px`;
+    } else {
+        document.body.style.paddingBottom = '0';
+    }
+}
+
+// Call when player visibility changes
+const observer = new MutationObserver((mutations) => {
+    mutations.forEach((mutation) => {
+        if (mutation.target.classList.contains('show')) {
+            updateBodyPadding();
+        }
+    });
+});
+
+// Observe the player element for class changes
+const player = document.querySelector('.global-player');
+observer.observe(player, { attributes: true, attributeFilter: ['class'] });
+
+// Also update on window resize
+window.addEventListener('resize', updateBodyPadding);
+
+</script>
+</body>
 </html>
